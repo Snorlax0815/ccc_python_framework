@@ -22,8 +22,8 @@ class Loader:
         :param parser: the method that will parse the input file. returns a list of the desired data, each entry is a case.
         :param executor: the method that will execute the desired function. returns a list of the result of each case.
         """
-        input_path = f"../source_files/level{level}/level{level}_{case}.in"
-        output_path = f"../output_files/level{level}/level{level}_{case}.out"
+        input_path = f"source_files/level{level}/level{level}_{case}.in"
+        output_path = f"output_files/level{level}/level{level}_{case}.out"
 
         # Ensure the output directory exists
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -44,8 +44,8 @@ class Loader:
         :param parser: the method that will parse the input file. returns a list of the desired data, each entry is a case.
         :param executor: the method that will execute the desired function. returns a list of the result of each case.
         """
-        input_dir = f"../source_files/level{level}/"
-        output_dir = f"../output_files/level{level}/"
+        input_dir = f"source_files/level{level}/"
+        output_dir = f"output_files/level{level}/"
 
         # Ensure the output directory exists
         os.makedirs(os.path.dirname(output_dir), exist_ok=True)
@@ -67,8 +67,8 @@ class Loader:
         :param parser: the method that will parse the input file. returns a list of the desired data, each entry is a case.
         :param executor: the method that will execute the desired function. returns a list of the result of each case.
         """
-        input_path = f"../source_files/level1/level1_example.in"
-        output_path = f"../output_files/level1/level1_example.out"
+        input_path = f"source_files/level1/level1_example.in"
+        output_path = f"output_files/level1/level1_example.out"
 
         # Ensure the output directory exists
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
