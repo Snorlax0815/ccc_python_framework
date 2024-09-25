@@ -18,5 +18,5 @@ if __name__ == '__main__':
 
     lvl1_parser = ccc.lvl1_parser
     lvl1_executor = ccc.lvl1_executor
-    data = lvl1_parser(open("../source_files/level1/level1_example.in", "r"))
+    data = lvl1_parser(open("source_files/level1/level1_example.in", "r"))
     lvl1_executor(data)

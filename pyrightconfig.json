@@ -2,10 +2,4 @@
   "include": [
       "src"
   ],
-
-  "executionEnvironments": [
-      {
-          "root": "."
-      }
-  ]
 }
