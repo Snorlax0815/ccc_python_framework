@@ -63,14 +63,30 @@ class CCC():
 
         return ",".join(sorted)
 
+    def lvl4_parser(self, file):
+        num_points = int(file.readline().strip())
+        points = [line.strip().split(",") for line in file.readlines()]
+        points = [[float(x), float(y)] for x, y in points]
+        num_edges = int(file.readline().strip())
+        edges = [line.strip().split(",") for line in file.readlines()]
+        edges = [[int(x), int(y)] for x, y in edges]
+        return [num_points, points, num_edges, edges]
+
+    def lvl4_executor(self, data):
+        s = Simon()
+        points = data[1]
+        edges = data[3]
+        for edge in edges:
+            s.addLine(points[edge[0]], points[edge[1]])
+
 
 
 if __name__ == '__main__':
     ccc = CCC()
-    lvl2_parser = ccc.lvl2_parser
-    lvl2_executor = ccc.lvl2_executor
-    data = lvl2_parser(open("../source_files/level2/level2-1.in", "r"))
-    print(lvl2_executor(data))
+    lvl4_parser = ccc.lvl4_parser
+    lvl4_executor = ccc.lvl4_executor
+    data = lvl4_parser(open("../source_files/level4/level4-1.in", "r"))
+    print(lvl4_executor(data))
     """lvl1_executor = ccc.lvl1_executor
     data = lvl1_parser(open("../source_files/level1/level1-1.in", "r"))
     lvl1_executor(data)"""
