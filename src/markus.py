@@ -5,7 +5,8 @@ class CCC():
     def lvl1_parser(self, file):
         num_rectangles = (file.readline())
         print(num_rectangles)
-        rect_points= file.readline.split(",")
+        rect_points= file.readline().split(",")
+        rect_points = [int(x) for x in rect_points]
         print(rect_points)
         num_point = int(file.readline().strip())
         print(num_point)
@@ -26,8 +27,7 @@ class CCC():
 
 if __name__ == '__main__':
     ccc = CCC()
-
     lvl1_parser = ccc.lvl1_parser
     lvl1_executor = ccc.lvl1_executor
-    rect_points, points = lvl1_parser(open("../source_files/level1/level1.in", "r"))
+    rect_points, points = lvl1_parser(open("../source_files/level1/level1-1.in", "r"))
     lvl1_executor(rect_points, points)
