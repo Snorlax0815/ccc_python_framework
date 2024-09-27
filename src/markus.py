@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from simon import Simon
 
 
@@ -89,14 +91,41 @@ class CCC():
         print(s.pointsInsidePolygon)
         return (s.pointsInsidePolygon)
 
+    def lvl5_parser(self, file):
+        num_points_poly1 = int(file.readline().strip())
+        lines =[]
+        for i in range(num_points_poly1):
+            temp = file.readline().strip().split(',')
+            lines.append(temp)
+        points_poly1 = [[float(x), float(y)] for x, y in lines]
+        num_points_poly2 = int(file.readline().strip())
+        lines =[]
+        for i in range(num_points_poly2):
+            temp = file.readline().strip().split(',')
+            lines.append(temp)
+        points_poly2 = [[float(x), float(y)] for x, y in lines]
+        num_cars = int(file.readline().strip())
+        cars = [line.strip().split(",") for line in file.readlines()]
+        cars = [[x, datetime.strptime(y, "%H:%M:%S").time(), float(v), float(h)] for x, y, v, h in cars]
+        return [num_points_poly1, points_poly1, num_points_poly2, points_poly2, num_cars, cars]
+
+    def lvl5_executor(self, data):
+        s = Simon()
+        poly1 = data[1]
+        poly2 = data[3]
+        cars = data[5]
+        s.readPolygon(poly1)
+        s.readSecondPolygon(poly2)
+        for car in cars:
+            s.addObservation(car)
 
 
 if __name__ == '__main__':
     ccc = CCC()
-    lvl4_parser = ccc.lvl4_parser
-    lvl4_executor = ccc.lvl4_executor
-    data = lvl4_parser(open("../source_files/level4/level4-1.in", "r"))
-    print(lvl4_executor(data))
+    lvl5_parser = ccc.lvl5_parser
+    lvl5_executor = ccc.lvl5_executor
+    data = lvl5_parser(open("../source_files/level4/level4-1.in", "r"))
+    print(lvl5_executor(data))
     """lvl1_executor = ccc.lvl1_executor
     data = lvl1_parser(open("../source_files/level1/level1-1.in", "r"))
     lvl1_executor(data)"""
