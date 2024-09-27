@@ -22,8 +22,8 @@ class Loader:
         :param parser: the method that will parse the input file. returns a list of the desired data, each entry is a case.
         :param executor: the method that will execute the desired function. returns a list of the result of each case.
         """
-        input_path = f"source_files/level{level}/level{level}_{case}.in"
-        output_path = f"output_files/level{level}/level{level}_{case}.out"
+        input_path = f"source_files/level{level}/level{level}-{case}.in"
+        output_path = f"output_files/level{level}/level{level}-{case}.out"
 
         # Ensure the output directory exists
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -53,7 +53,8 @@ class Loader:
         # Now open the files
         for file in os.listdir(input_dir):
             if os.path.isfile(input_dir + file) and file.endswith(".in"):
-                with open(input_dir+file, "r") as file, open(file.name.replace(".in", ".out").replace(old="source", new="output"), "w+") as output:
+                with open(input_dir+file, "r") as file, open(file.name.replace(".in", ".out")
+                                                                     .replace(old="source", new="output"), "w+") as output:
                     parsed_data = parser(file)
                     return_data = executor(parsed_data)
                     print(return_data, file = output)
