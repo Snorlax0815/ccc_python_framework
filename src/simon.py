@@ -8,6 +8,8 @@ class Simon:
 
         self.carsInsideRect = []
 
+        self.pointsInsidePolygon = 0
+
     # read a rectangle via north, east, south and west coords
     def readRect(self, n, o, s, w):
         self.n = n
@@ -35,7 +37,13 @@ class Simon:
         if self.checkInsideRect(data[3], data[2]):
             self.carsInsideRect.append(data)
 
-    def is_point_in_convex_polygon(point, polygon):
+    def readPolygon(self, data):
+        self.polygon = data
+        print(f"read polygon {data}")
+
+    def is_point_in_convex_polygon(self, data):
+        point = [data[1], data[0]]
+        polygon = self.polygon
         """
         Determine if a point is inside a convex polygon using the ray-casting algorithm.
 
@@ -43,13 +51,13 @@ class Simon:
         :param polygon: A list of tuples [(x1, y1), (x2, y2), ...] representing the vertices of the polygon.
         :return: True if the point is inside the polygon, False otherwise.
         """
-        x, y = point
+        x, y = point[1], point[0]
         n = len(polygon)
         inside = False
 
         p1x, p1y = polygon[0]
         for i in range(n + 1):
-            p2x, p2y = polygon[i % n]
+            p2x, p2y = polygon[i % n][0], polygon[i % n][1]
             if y > min(p1y, p2y):
                 if y <= max(p1y, p2y):
                     if x <= max(p1x, p2x):
@@ -60,8 +68,8 @@ class Simon:
             p1x, p1y = p2x, p2y
 
         return inside
+    
+    def addPointPolygon(self, data):
+        if self.is_point_in_convex_polygon(data):
+            self.pointsInsidePolygon += 1
 
-    # Example usage:
-    point = (3, 3)
-    polygon = [(0, 0), (5, 0), (5, 5), (0, 5)]
-    print(is_point_in_convex_polygon(point, polygon))  # Output: True

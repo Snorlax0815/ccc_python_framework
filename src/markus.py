@@ -65,19 +65,29 @@ class CCC():
 
     def lvl4_parser(self, file):
         num_points = int(file.readline().strip())
-        points = [line.strip().split(",") for line in file.readlines()]
-        points = [[float(x), float(y)] for x, y in points]
+        lines = []
+        for i in range(num_points):
+            temp = file.readline().strip().split(',')
+            lines.append(temp)
+            
+        # points = [line.strip().split(",") for line in file.readlines()]
+        points = [[float(x), float(y)] for x, y in lines]
         num_edges = int(file.readline().strip())
         edges = [line.strip().split(",") for line in file.readlines()]
-        edges = [[int(x), int(y)] for x, y in edges]
+        edges = [[float(x), float(y)] for x, y in edges]
         return [num_points, points, num_edges, edges]
 
     def lvl4_executor(self, data):
         s = Simon()
         points = data[1]
         edges = data[3]
-        for edge in edges:
-            s.addLine(points[edge[0]], points[edge[1]])
+        s.readPolygon(points)
+
+        for points in edges:
+            s.addPointPolygon(points)
+
+        print(s.pointsInsidePolygon)
+        return (s.pointsInsidePolygon)
 
 
 
