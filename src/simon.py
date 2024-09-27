@@ -12,6 +12,6 @@ class Simon:
 
     # add a point (x and y coords) 
     def addPoint(self, x, y):
-        pass
-        # self.points.append((l, m))
-        # if self.w < l and l < self.o and m 
+        self.points.append((x, y))
+        if self.w < x and x < self.o and self.n > y and y > self.s:
+            self.pointsInsideRect += 1
