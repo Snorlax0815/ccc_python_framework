@@ -41,6 +41,22 @@ class CCC():
         # return f"{s.northestCar}, {s.eastestCar}"
         return f"{s.northestCar[0]},{s.northestCar[1]},{s.eastestCar[0]},{s.eastestCar[1]}"
 
+    def lvl3_parser(self, file):
+        rect_points = file.readline().strip().split(",")
+        rect_points = [float(x) for x in rect_points]
+        num_cars = int(file.readline().strip())
+        cars = [line.strip().split(",") for line in file.readlines()]
+        cars = [[x, y, float(v), float(h)] for x, y, v, h in cars]
+        return [rect_points, num_cars, cars]
+
+    def lvl3_executor(self, data):
+        s = Simon()
+        s.readRect(data[0][0], data[0][1], data[0][2], data[0][3])
+        cars = data[2]
+        for car in cars:
+            s.addCarInRect(car)
+
+
 
 if __name__ == '__main__':
     ccc = CCC()
