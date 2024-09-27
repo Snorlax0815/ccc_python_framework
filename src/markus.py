@@ -38,7 +38,8 @@ class CCC():
         cars = data[1]
         for car in cars:
             s.addCar(car)
-        return f"{s.northestCar}, {s.eastestCar}"
+        # return f"{s.northestCar}, {s.eastestCar}"
+        return f"{s.northestCar[0]},{s.northestCar[1]},{s.eastestCar[0]},{s.eastestCar[1]}"
 
 
 if __name__ == '__main__':
