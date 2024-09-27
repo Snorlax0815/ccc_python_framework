@@ -3,16 +3,17 @@ from src.simon import Simon
 
 class CCC():
     def lvl1_parser(self, file):
-        num_rectangles = float(file.readline())
-        print(num_rectangles)
-        rect_points= file.readline().split(",")
+        #print(file.readlines())
+        rect_points= file.readline().strip().split(",")
+        #print(rect_points)
         rect_points = [float(x) for x in rect_points]
-        print(rect_points)
-        num_point = int(file.readline().strip().split(","))
-        print(num_point)
+        #print(rect_points)
+        num_point = int(file.readline().strip())
+        #print(num_point)
         points = [file.readline().split(",") for _ in range(num_point)]
-        points = [(float(x), float(y)) for x, y in points]
-        print(points)
+        points = [[float(x), float(y)] for x, y in points]
+        #print(points)
+        print(rect_points, points)
         return [rect_points, points]
 
     def lvl1_executor(self, data):
@@ -22,7 +23,7 @@ class CCC():
         s.readRect(rect_points[0], rect_points[1], rect_points[2], rect_points[3])
         for point in points:
             s.addPoint(point[1], point[0])
-        print(s.pointsInsideRect)
+        #print(s.pointsInsideRect)
         pass
 
 
