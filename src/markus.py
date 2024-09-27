@@ -1,16 +1,21 @@
 class CCC():
     def lvl1_parser(self, file):
-        num_lines = file.readline()
-        return [file.readline() for _ in range(int(num_lines))]
+        num_rectangles = (file.readline())
+        print(num_rectangles)
+        rect_points= file.readline.split(",")
+        print(rect_points)
+        num_point = int(file.readline().strip())
+        print(num_point)
+        points = [file.readline().split(",") for _ in range(num_point)]
+        print(points)
+        return rect_points, points
 
     def lvl1_executor(self, data):
-        out = []
-        for line in data:
-            output_line = str(line.count("W")) + " " + str(line.count("D")) + " " + str(line.count("S")) + " " + str(line.count("A"))
-            print(output_line)
-            out.append(output_line)
-        print(out)
-        return "\n".join(out)
+        # simon object erstellen,
+        # rectangle erstellen
+        # punkte übergeben
+        pass
+
 
 
 if __name__ == '__main__':
