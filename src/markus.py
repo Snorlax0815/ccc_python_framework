@@ -29,19 +29,24 @@ class CCC():
     def lvl2_parser(self, file):
         num_cars = int(file.readline().strip())
         cars = [line.strip().split(",") for line in file.readlines()]
+        cars = [[x, y, float(v), float(h)] for x, y, v, h in cars]
         print(num_cars, cars)
-        pass
+        return [num_cars, cars]
 
     def lvl2_executor(self, data):
-        pass
-
+        s = Simon()
+        cars = data[1]
+        for car in cars:
+            s.addCar(car)
+        return f"{s.northestCar}, {s.eastestCar}"
 
 
 if __name__ == '__main__':
     ccc = CCC()
     lvl2_parser = ccc.lvl2_parser
-    lvl2_parser(open("../source_files/level2/level2-1.in", "r"))
-
+    lvl2_executor = ccc.lvl2_executor
+    data = lvl2_parser(open("../source_files/level2/level2-1.in", "r"))
+    print(lvl2_executor(data))
     """lvl1_executor = ccc.lvl1_executor
     data = lvl1_parser(open("../source_files/level1/level1-1.in", "r"))
     lvl1_executor(data)"""
