@@ -114,10 +114,12 @@ class CCC():
         poly1 = data[1]
         poly2 = data[3]
         cars = data[5]
+        # print(f"poly 1: {poly1}\n\npoly2: {poly2}\n\ncars: {cars}")
         s.readPolygon(poly1)
         s.readSecondPolygon(poly2)
         for car in cars:
             s.addObservation(car)
+        return s.formatAnswer5()
 
 
 if __name__ == '__main__':
