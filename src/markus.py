@@ -56,6 +56,13 @@ class CCC():
         for car in cars:
             s.addCarInRect(car)
 
+        sorted = [car[0] for car in s.carsInsideRect]
+        sorted.sort()
+        sorted = [x for x in set(sorted)]
+        sorted.sort()
+
+        return ",".join(sorted)
+
 
 
 if __name__ == '__main__':
