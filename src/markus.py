@@ -26,11 +26,22 @@ class CCC():
         print(s.pointsInsideRect)
         return s.pointsInsideRect
 
+    def lvl2_parser(self, file):
+        num_cars = int(file.readline().strip())
+        cars = [line.strip().split(",") for line in file.readlines()]
+        print(num_cars, cars)
+        pass
+
+    def lvl2_executor(self, data):
+        pass
+
 
 
 if __name__ == '__main__':
     ccc = CCC()
-    lvl1_parser = ccc.lvl1_parser
-    lvl1_executor = ccc.lvl1_executor
+    lvl2_parser = ccc.lvl2_parser
+    lvl2_parser(open("../source_files/level2/level2-1.in", "r"))
+
+    """lvl1_executor = ccc.lvl1_executor
     data = lvl1_parser(open("../source_files/level1/level1-1.in", "r"))
-    lvl1_executor(data)
+    lvl1_executor(data)"""
