@@ -85,8 +85,8 @@ class Loader:
 if __name__ == '__main__':
     loader = Loader()
     CCC = CCC()
-    parser = CCC.lvl1_parser
-    executor = CCC.lvl1_executor
-    # loader.run_case(1, 1, parser, executor)
-    loader.run_all_cases(1, parser, executor)
+    parser = CCC.lvl2_parser
+    executor = CCC.lvl2_executor
+    # loader.run_case(2, 2, parser, executor)
+    loader.run_all_cases(2, parser, executor)
     # loader.run_example(parser, executor)
