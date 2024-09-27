@@ -1,4 +1,4 @@
-from src.simon import Simon
+from simon import Simon
 
 
 class CCC():
@@ -23,8 +23,8 @@ class CCC():
         s.readRect(rect_points[0], rect_points[1], rect_points[2], rect_points[3])
         for point in points:
             s.addPoint(point[1], point[0])
-        #print(s.pointsInsideRect)
-        pass
+        print(s.pointsInsideRect)
+        return s.pointsInsideRect
 
 
 
