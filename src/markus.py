@@ -2,7 +2,6 @@ from datetime import datetime
 
 from simon import Simon
 
-
 class CCC():
     def lvl1_parser(self, file):
         #print(file.readlines())
@@ -58,12 +57,9 @@ class CCC():
         for car in cars:
             s.addCarInRect(car)
 
-        sorted = [car[0] for car in s.carsInsideRect]
-        sorted.sort()
-        sorted = [x for x in set(sorted)]
-        sorted.sort()
+        sorted1 = sorted(set(car[0] for car in s.carsInsideRect))
 
-        return ",".join(sorted)
+        return ",".join(sorted1)
 
     def lvl4_parser(self, file):
         num_points = int(file.readline().strip())
@@ -72,8 +68,10 @@ class CCC():
             temp = file.readline().strip().split(',')
             lines.append(temp)
             
+
+
         # points = [line.strip().split(",") for line in file.readlines()]
-        points = [[float(x), float(y)] for x, y in lines]
+        points = [(float(x), float(y)) for x, y in lines]
         num_edges = int(file.readline().strip())
         edges = [line.strip().split(",") for line in file.readlines()]
         edges = [[float(x), float(y)] for x, y in edges]
