@@ -1,0 +1,17 @@
+#!/bin/python
+
+from os import system
+import sys
+
+if len(sys.argv) < 2:
+    print('usage: ./zip [filename]')
+    exit(1)
+filename = sys.argv[1]
+
+num = next(filter(str.isnumeric, filename), None)
+if num == None:
+    print('couldnt find number')
+    exit(1)
+print(f'found number {num}')
+
+system(f'unzip {filename} -d files/level{num}')
