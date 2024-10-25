@@ -86,5 +86,5 @@ if __name__ == '__main__':
     parser = CCC.lvl3_parser
     executor = CCC.lvl3_executor
     # loader.run_case(1, 1, parser, executor)
-    # loader.run_all_cases(3, parser, executor)
+    loader.run_all_cases(3, parser, executor)
     loader.run_example(parser, executor)

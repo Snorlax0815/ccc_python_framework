@@ -58,7 +58,6 @@ class CCC():
         out = []
         for h in heights:
             res = solve3(max_time, h)
-            print(res)
             res = [str(x) for x in res]
             out.append(" ".join(res))
         return "\n".join(out)
