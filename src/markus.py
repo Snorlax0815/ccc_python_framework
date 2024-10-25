@@ -48,10 +48,12 @@ class CCC():
         max_time = file.readline()
         outputs = []
         for line in file:
-            line = line.strip().split(" ")
             outputs.append(line)
         print(outputs)
         return [max_time,outputs]
+
+    def lvl3_executor(self, data):
+        pass
 
 
 
