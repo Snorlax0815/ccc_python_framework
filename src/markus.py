@@ -4,21 +4,32 @@ from simon import test
 class CCC():
     def lvl1_parser(self, file):
         num_lines = file.readline()
-        return [file.readline() for _ in range(int(num_lines))]
+        outputs = []
+        for line in file:
+            line = line.strip().split(" ")
+            outputs.append(line)
+        print(outputs)
+        return outputs
 
     def lvl1_executor(self, data):
         out = []
         for line in data:
-            output_line = str(line.count("W")) + " " + str(line.count("D")) + " " + str(line.count("S")) + " " + str(line.count("A"))
-            print(output_line)
-            out.append(output_line)
+            c = 0
+            for i in line:
+                c += int(i)
+            out.append(c)
         print(out)
-        return "\n".join(out)
+        s = ""
+        for i in out:
+            s += str(i) + "\n"
+        s =s.strip()
+        print(s)
+        return s
 
 
 if __name__ == '__main__':
     ccc = CCC()
-    test()
+    # test()
 
     lvl1_parser = ccc.lvl1_parser
     lvl1_executor = ccc.lvl1_executor
