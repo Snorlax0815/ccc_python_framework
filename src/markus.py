@@ -43,6 +43,16 @@ class CCC():
         out.strip()
         return out.strip()
 
+    def lvl3_parser(self, file):
+        num_flights = file.readline()
+        max_time = file.readline()
+        outputs = []
+        for line in file:
+            line = line.strip().split(" ")
+            outputs.append(line)
+        print(outputs)
+        return [max_time,outputs]
+
 
 
 if __name__ == '__main__':
