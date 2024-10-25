@@ -53,7 +53,33 @@ class CCC():
         return [max_time,outputs]
 
     def lvl3_executor(self, data):
-        pass
+        max_time = int(data[0].strip())
+        heights = [int(h.strip()) for h in data[1]]
+        results = []
+
+        for height in heights:
+            velocity = 0
+            time = 0
+            position = 0
+            while time < max_time:
+                if position < height:
+                    acceleration = 1
+                else:
+                    acceleration = -1
+
+                velocity += acceleration - 10  # gravity is -10
+                position += velocity
+                time += 1
+
+                if position >= height and (acceleration == 0 or acceleration == -1):
+                    break
+
+            if position >= height:
+                results.append(f"Reached {height} in {time} seconds")
+            else:
+                results.append(f"Failed to reach {height} in {max_time} seconds")
+
+        return "\n".join(results)
 
 
 
@@ -61,7 +87,7 @@ if __name__ == '__main__':
     ccc = CCC()
     # test()
 
-    lvl1_parser = ccc.lvl1_parser
-    lvl1_executor = ccc.lvl1_executor
-    data = lvl1_parser(open("source_files/level1/level1_example.in", "r"))
-    lvl1_executor(data)
+    lvl3_parser = ccc.lvl3_parser
+    lvl3_executor = ccc.lvl3_executor
+    data = lvl3_parser(open("source_files/level3/level3_example.in", "r"))
+    lvl3_executor(data)
