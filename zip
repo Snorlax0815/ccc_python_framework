@@ -14,4 +14,4 @@ if num == None:
     exit(1)
 print(f'found number {num}')
 
-system(f'unzip {filename} -d files/level{num}')
+system(f'unzip {filename} -d source_files/level{num}')
