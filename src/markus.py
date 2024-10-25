@@ -1,4 +1,4 @@
-from simon import test
+from simon import solve1, test
 
 
 class CCC():
@@ -36,7 +36,13 @@ class CCC():
         return outputs
 
     def lvl2_executor(self, data):
-        pass
+        out = ""
+        for l in data:
+            result = solve1(l)
+            out += str(result) + "\n"
+        out.strip()
+        return out.strip()
+
 
 
 if __name__ == '__main__':
