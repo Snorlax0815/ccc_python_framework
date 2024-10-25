@@ -53,7 +53,7 @@ class CCC():
         return [max_time,outputs]
 
     def lvl3_executor(self, data):
-        max_time = int(data[0].strip())
+        max_time = int(data[0])
         heights = [int(h.strip()) for h in data[1]]
         results = []
 
@@ -61,25 +61,22 @@ class CCC():
             velocity = 0
             time = 0
             position = 0
+            moves = []
             while time < max_time:
                 if position < height:
-                    acceleration = 1
+                    acceleration = min(1, (height - position) / 10)
                 else:
-                    acceleration = -1
-
+                    acceleration = max(-1, (height - position) / 10)
+                moves.append(acceleration)
                 velocity += acceleration - 10  # gravity is -10
                 position += velocity
                 time += 1
 
                 if position >= height and (acceleration == 0 or acceleration == -1):
                     break
+            results.append(moves)
 
-            if position >= height:
-                results.append(f"Reached {height} in {time} seconds")
-            else:
-                results.append(f"Failed to reach {height} in {max_time} seconds")
-
-        return "\n".join(results)
+        return "\n".join(rsults)
 
 
 

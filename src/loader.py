@@ -67,8 +67,8 @@ class Loader:
         :param parser: the method that will parse the input file. returns a list of the desired data, each entry is a case.
         :param executor: the method that will execute the desired function. returns a list of the result of each case.
         """
-        input_path = f"source_files/level1/level1_example.in"
-        output_path = f"output_files/level1/level1_example.out"
+        input_path = f"source_files/level3/level3_example.in"
+        output_path = f"output_files/level3/level3_example.out"
 
         # Ensure the output directory exists
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -83,8 +83,8 @@ class Loader:
 if __name__ == '__main__':
     loader = Loader()
     CCC = CCC()
-    parser = CCC.lvl2_parser
-    executor = CCC.lvl2_executor
+    parser = CCC.lvl3_parser
+    executor = CCC.lvl3_executor
     # loader.run_case(1, 1, parser, executor)
-    loader.run_all_cases(2, parser, executor)
+    # loader.run_all_cases(2, parser, executor)
     loader.run_example(parser, executor)
