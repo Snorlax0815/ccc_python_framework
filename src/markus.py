@@ -26,6 +26,18 @@ class CCC():
         print(s)
         return s
 
+    def lvl2_parser(self, file):
+        num_lines = file.readline()
+        outputs = []
+        for line in file:
+            line = line.strip().split(" ")
+            outputs.append(line)
+        print(outputs)
+        return outputs
+
+    def lvl2_executor(self, data):
+        pass
+
 
 if __name__ == '__main__':
     ccc = CCC()
