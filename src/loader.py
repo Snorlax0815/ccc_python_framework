@@ -53,7 +53,7 @@ class Loader:
         # Now open the files
         for file in os.listdir(input_dir):
             if os.path.isfile(input_dir + file) and file.endswith(".in"):
-                with open(input_dir+file, "r") as file, open(file.name.replace(".in", ".out").replace(old="source", new="output"), "w+") as output:
+                with open(input_dir+file, "r") as file, open(file.name.replace(".in", ".out").replace("source", "output"), "w+") as output:
                     parsed_data = parser(file)
                     return_data = executor(parsed_data)
                     print(return_data, file = output)
@@ -86,5 +86,5 @@ if __name__ == '__main__':
     parser = CCC.lvl1_parser
     executor = CCC.lvl1_executor
     # loader.run_case(1, 1, parser, executor)
-    # loader.run_all_cases(1, parser, executor)
+    loader.run_all_cases(1, parser, executor)
     loader.run_example(parser, executor)
