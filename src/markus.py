@@ -1,4 +1,4 @@
-from simon import solve1, test
+from simon import solve1, solve3, test
 
 
 class CCC():
@@ -55,28 +55,16 @@ class CCC():
     def lvl3_executor(self, data):
         max_time = int(data[0])
         heights = [int(h.strip()) for h in data[1]]
-        results = []
+        out = []
+        for h in heights:
+            res = solve3(max_time, h)
+            print(res)
+            res = [str(x) for x in res]
+            out.append(" ".join(res))
+        return "\n".join(out)
 
-        for height in heights:
-            velocity = 0
-            time = 0
-            position = 0
-            moves = []
-            while time < max_time:
-                if position < height:
-                    acceleration = min(1, (height - position) / 10)
-                else:
-                    acceleration = max(-1, (height - position) / 10)
-                moves.append(acceleration)
-                velocity += acceleration - 10  # gravity is -10
-                position += velocity
-                time += 1
 
-                if position >= height and (acceleration == 0 or acceleration == -1):
-                    break
-            results.append(moves)
 
-        return "\n".join(rsults)
 
 
 
