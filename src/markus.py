@@ -1,3 +1,6 @@
+from simon import test
+
+
 class CCC():
     def lvl1_parser(self, file):
         num_lines = file.readline()
@@ -15,6 +18,7 @@ class CCC():
 
 if __name__ == '__main__':
     ccc = CCC()
+    test()
 
     lvl1_parser = ccc.lvl1_parser
     lvl1_executor = ccc.lvl1_executor
